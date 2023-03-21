@@ -12,6 +12,7 @@ Data Pengaduan
     </h2>
 
 
+
     <div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
       <div class="w-full overflow-x-auto">
         @if ($errors->any())
@@ -23,6 +24,7 @@ Data Pengaduan
           </ul>
         </div>
         @endif
+
         <table class="w-full whitespace-no-wrap">
           <thead>
             <tr

@@ -48,6 +48,7 @@ class AdminController extends Controller
 
     public function cetak() {
 
+
         $pengaduan = Pengaduan::all();
 
         $pdf = PDF::loadview('pages.admin.pengaduan',[
