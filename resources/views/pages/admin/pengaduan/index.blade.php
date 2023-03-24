@@ -35,25 +35,6 @@ Data Pengaduan
             </div>
         </a>
 
-        <a href="{{  url()->current() . '?status=Sedang di Proses' }}">
-            <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800" data-toggle="modal" data-target="#exampleModalLong">
-                <div class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
-                  <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path
-                      d="M8 5a1 1 0 100 2h5.586l-1.293 1.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L13.586 5H8zM12 15a1 1 0 100-2H6.414l1.293-1.293a1 1 0 10-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L6.414 15H12z" />
-                  </svg>
-                </div>
-                <div>
-                  <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
-                    Sedang Diproses
-                  </p>
-                  <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                    {{-- {{ $process }} --}}
-                  </p>
-                </div>
-            </div>
-        </a>
-
         <a href="{{  url()->current() . '?status=Belum di Proses' }}">
             <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800" data-toggle="modal" data-target="#exampleModalLong">
                 <div class="p-3 mr-4 text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">
@@ -69,6 +50,25 @@ Data Pengaduan
                   </p>
                   <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
                     {{-- {{ $pending }} --}}
+                  </p>
+                </div>
+            </div>
+        </a>
+
+        <a href="{{  url()->current() . '?status=Sedang di Proses' }}">
+            <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800" data-toggle="modal" data-target="#exampleModalLong">
+                <div class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
+                  <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path
+                      d="M8 5a1 1 0 100 2h5.586l-1.293 1.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L13.586 5H8zM12 15a1 1 0 100-2H6.414l1.293-1.293a1 1 0 10-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L6.414 15H12z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                    Sedang Diproses
+                  </p>
+                  <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                    {{-- {{ $process }} --}}
                   </p>
                 </div>
             </div>
@@ -95,15 +95,12 @@ Data Pengaduan
             </div>
         </a>
 
-        {{-- <div class="my-4 mb-6">
+        <div class="my-4 mb-6">
             <a href="{{ request()->status ? $url.'&pdf=true' : '?pdf=true'}}"
                 class="px-5 py-3  font-medium leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-red">
                 Export Ke PDF
             </a>
-        </div> --}}
-
-
-
+        </div>
 
     <div class="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
       <div class="w-full overflow-x-auto">
