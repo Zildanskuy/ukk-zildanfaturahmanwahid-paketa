@@ -74,7 +74,7 @@ Data Pengaduan
                     class="flex items-center justify-between  text-sm font-medium leading-5 text-white rounded-lg dark:text-white-400 focus:outline-none focus:shadow-outline-gray"
                     aria-label="Detail">
                     Lihat
-                    
+
                   </a>
 
                 </button>

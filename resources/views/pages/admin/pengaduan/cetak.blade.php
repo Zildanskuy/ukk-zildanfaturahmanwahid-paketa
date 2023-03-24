@@ -19,20 +19,21 @@
 <body>
   <div class="container">
     <div class="title text-center mb-5">
-      <h2>Layanan Pengaduan Masyarakat Online</h2>
+      <h3>Layanan Pengaduan Masyarakat Online</h3>
+      <h3>Kelurahan Cipaku</h3>
     </div>
     <hr class="solid">
 
     <div>
-      <h6>Laporan Pengaduan</h6>
+      <h6>Tanggal Laporan Pengaduan :</h6>
       <h6>{{ $pengaduan->created_at->format('l, d F Y') }}</h6>
     </div>
     <hr class="solid">
-    
+
     <div class="mt-3 mb-3">
       <h6>Nama : {{ $pengaduan->name }}</h6>
-      <h6>NIK : {{ $pengaduan->user_nik }}</h6>      
-      <h6>No. Telepon : {{ $pengaduan->user->phone }}</h6>      
+      <h6>NIK : {{ $pengaduan->user_nik }}</h6>
+      <h6>No. Telepon : {{ $pengaduan->user->phone }}</h6>
     </div>
 
     <table class="table table-bordered">

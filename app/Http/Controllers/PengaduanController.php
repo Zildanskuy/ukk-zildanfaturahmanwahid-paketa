@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Pengaduan;
 use App\Models\Tanggapan;
 use RealRashid\SweetAlert\Facades\Alert;
+use PDF;
+use Illuminate\Support\Str;
 
 class PengaduanController extends Controller
 {
@@ -14,12 +16,33 @@ class PengaduanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(request $request, Pengaduan $model)
     {
+        $url = $request->fullUrl();
+        $status = $request->status;
 
-        $items = Pengaduan::all();
+        if ($request->status && $request->status != 'all') {
+            $model = $model->where('status', $request->status);
+        }
+        $items = $model->get();
+
+        $pending = Pengaduan::where('status', 'Belum di Proses')->count();
+
+        $process = Pengaduan::where('status', 'Sedang di Proses')->count();
+
+        $success = Pengaduan::where('status', 'Selesai')->count();
+
+        if ($request->pdf == true) {
+            return $this->pdf($items);
+        }
+
+
         return view('pages.admin.pengaduan.index',[
-            'items' => $items
+            'url' => $url,
+            'items' => $items,
+            'pending' => $pending,
+            'process' => $process,
+            'success' => $success
         ]);
 
 
@@ -105,5 +128,11 @@ class PengaduanController extends Controller
 
         Alert::success('Berhasil', 'Pengaduan telah di hapus');
         return redirect('admin/pengaduans');
+    }
+
+    public function pdf($datas){
+        $pdf = PDF::loadview('pages.admin.pengaduan.alldata',['datas'=>$datas])->setpaper('a4', 'landscape');
+        $name = 'petugas-laporan-pengaduan-'.Str::random(5);
+    	return $pdf->download($name.'.pdf');
     }
 }
